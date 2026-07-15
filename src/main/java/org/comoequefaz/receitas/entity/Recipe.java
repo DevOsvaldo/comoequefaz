@@ -5,10 +5,13 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.comoequefaz.receitas.shared.entity.BaseEntity;
 
 @Entity
-@Data
+@Getter
+@Setter
 @Table(name = "recipes")
 public class Recipe extends BaseEntity {
 
@@ -28,7 +31,10 @@ public class Recipe extends BaseEntity {
 
     private Integer servings;
 
-    private boolean favorite;
+    private Boolean favorite;
 
 
+    public boolean isFavorite() {
+        return Boolean.TRUE.equals(favorite);
+    }
 }
